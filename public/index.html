@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download - SupermarketRaf.pas</title>
+  <title>Profil & Turbo Pascal</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,7 +14,6 @@
       animation: gradient 15s ease infinite;
       color: #fff;
       overflow-x: hidden;
-      text-align: center;
     }
     @keyframes gradient {
       0% { background-position: 0% 50%; }
@@ -24,11 +23,11 @@
 
     header, footer, section {
       position: relative;
-      padding: 60px 20px;
+      padding: 80px 20px;
+      text-align: center;
       overflow: hidden;
     }
-
-    h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 10px; }
+    h1 { font-size: 3rem; font-weight: 600; margin-bottom: 10px; }
     p { font-size: 1rem; margin-bottom: 20px; }
 
     /* Button */
@@ -45,6 +44,12 @@
       font-weight: 600;
       transition: all 0.3s ease;
       margin: 10px;
+      cursor: pointer;
+    }
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
     }
     .btn:hover {
       transform: scale(1.05);
@@ -68,48 +73,287 @@
       object-fit: cover;
     }
 
+    /* List */
+    ul.profile-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+      text-align: left;
+      display: inline-block;
+    }
+    ul.profile-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+    ul.profile-list svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    /* Lampu Glow */
+    .lamp {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.8), transparent 70%);
+      opacity: 0.6;
+      animation: float 12s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+      50% { transform: translateY(-30px) translateX(20px); opacity: 0.3; }
+    }
+    .lamp.small { width: 12px; height: 12px; }
+    .lamp.medium { width: 20px; height: 20px; }
+    .lamp.large { width: 30px; height: 30px; }
+
+    /* Code Box */
+    .code-box {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      margin: 20px auto;
+      max-width: 700px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* Alert */
+    .alert {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+    }
+    .alert svg {
+      width: 18px;
+      height: 18px;
+      fill: #0f0;
+      flex-shrink: 0;
+    }
+    .alert.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
     footer {
       background: rgba(0,0,0,0.2);
       font-size: 0.9rem;
       color: #f3f4f6;
       padding: 30px 20px;
     }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .code-box { font-size: 0.8rem; }
+    }
   </style>
 </head>
 <body>
   <header>
+    <div class="lamp small" style="top:20%; left:10%;"></div>
+    <div class="lamp medium" style="top:60%; left:80%;"></div>
+    <div class="lamp large" style="top:40%; left:50%;"></div>
+
     <!-- Profil -->
     <div class="profile-pic">
       <img src="https://rafaelgian.vercel.app/images/rafael.jpg" alt="Foto Profil">
     </div>
-    <h1>Download File Pascal</h1>
-    <p>Ambil file Turbo Pascal project buatan Rafael di bawah ini.</p>
+    <h1>Halo, aku Rafael</h1>
+    <p>Suka belajar coding dan membuat proyek kreatif.</p>
+
+    <ul class="profile-list">
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.75l-6 5.857L19.335 24 12 19.897 4.665 24 6 15.607 0 9.75l8.332-1.595z"/></svg>
+        Hobi: Coding & Belajar
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 2H5a2 2 0 00-2 2v18l9-4 9 4V4a2 2 0 00-2-2z"/></svg>
+        Keahlian: Pascal, Web, Game
+      </li>
+    </ul>
 
     <!-- Tombol download -->
     <a href="marketRaf.pas" class="btn" download>
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
-        <path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/>
-      </svg>
-      Download SupermarketRaf.pas
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
+      Download marketRaf.pas
     </a>
+
+    <!-- Tombol Copy -->
+    <button class="btn" onclick="copyCode()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      Copy Code
+    </button>
+
+    <!-- Code Box -->
+    <div class="code-box" id="code">
+   program SupermarketAdvanceAutoHarga;
+uses crt;
+
+var
+   i, n : integer;
+   nama : array[1..100] of string;
+   harga, qty, total : array[1..100] of longint;
+   grand_total, diskon, total_bayar, bayar, kembalian : longint;
+
+function getHarga(nm: string): longint;
+begin
+   if (nm = 'Susu') or (nm = 'susu') then
+      getHarga := 15000
+   else if (nm = 'Roti') or (nm = 'roti') then
+      getHarga := 10000
+   else if (nm = 'Beras') or (nm = 'beras') then
+      getHarga := 20000
+   else if (nm = 'Minyak') or (nm = 'minyak') then
+      getHarga := 25000
+   else if (nm = 'Gula') or (nm = 'gula') then
+      getHarga := 12000
+   else if (nm = 'Kopi') or (nm = 'kopi') then
+      getHarga := 18000
+   else
+      getHarga := 0;  { Barang tidak tersedia }
+end;
+
+begin
+   clrscr;
+   writeln('======================================');
+   writeln('      PROGRAM SUPERMARKET ADVANCE     ');
+   writeln('======================================');
+   writeln('Daftar Barang yang Tersedia:');
+   writeln('Susu=15000 | Roti=10000 | Beras=20000');
+   writeln('Minyak=25000 | Gula=12000 | Kopi=18000');
+   writeln('======================================');
+   write('Masukkan jumlah jenis barang: '); readln(n);
+
+   grand_total := 0;
+
+   for i := 1 to n do
+   begin
+      writeln;
+      writeln('Barang ke-', i);
+      
+      repeat
+         write('Nama barang : '); readln(nama[i]);
+         harga[i] := getHarga(nama[i]);
+         if (harga[i] = 0) then
+            writeln('Barang tidak tersedia, coba lagi!');
+      until (harga[i] > 0);
+
+      repeat
+         write('Jumlah      : '); readln(qty[i]);
+         if (qty[i] <= 0) then
+            writeln('Jumlah harus lebih dari 0!');
+      until (qty[i] > 0);
+
+      total[i] := harga[i] * qty[i];
+      grand_total := grand_total + total[i];
+   end;
+
+   { Hitung diskon otomatis }
+   if (grand_total >= 200000) then
+      diskon := grand_total * 20 div 100
+   else if (grand_total >= 100000) then
+      diskon := grand_total * 10 div 100
+   else
+      diskon := 0;
+
+   total_bayar := grand_total - diskon;
+
+   { Cetak struk belanja }
+   writeln;
+   writeln('======================================');
+   writeln('             STRUK BELANJA             ');
+   writeln('======================================');
+   writeln('No  Nama Barang     Qty   Harga   Total');
+   writeln('--------------------------------------');
+   for i := 1 to n do
+   begin
+      writeln(i:2, '  ', nama[i]:12, '  ', qty[i]:3, 
+              '  Rp', harga[i]:6, '  Rp', total[i]:7);
+   end;
+   writeln('--------------------------------------');
+   writeln('Subtotal       : Rp', grand_total);
+   writeln('Diskon         : Rp', diskon);
+   writeln('Total Bayar    : Rp', total_bayar);
+
+   { Input pembayaran }
+   repeat
+      write('Bayar          : Rp'); readln(bayar);
+      if (bayar < total_bayar) then
+         writeln('Uang tidak cukup! Masukkan lagi.');
+   until (bayar >= total_bayar);
+
+   kembalian := bayar - total_bayar;
+   writeln('Kembalian      : Rp', kembalian);
+   writeln('======================================');
+   writeln('  Terima kasih sudah berbelanja! :)   ');
+   writeln('======================================');
+   readln;
+end.
+
+
+    </div>
   </header>
 
-  <!-- Tombol kembali -->
+  <!-- Section tambahan -->
   <section>
-    <a href="index.html" class="btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
-        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-      </svg>
-      Kembali ke Main Website
+    <a href="https://rafaelgian.vercel.app" class="btn" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      Main Website
     </a>
   </section>
 
   <footer>
+    <div class="lamp small" style="top:10%; left:30%;"></div>
+    <div class="lamp medium" style="top:50%; left:70%;"></div>
     <p>&copy; <span id="year"></span> Rafael. All rights reserved.</p>
   </footer>
 
+  <!-- Alert -->
+  <div class="alert" id="alertBox">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17l-3.88-3.88L4 13.41 9 18.41 20 7.41 18.59 6l-9.59 9.59z"/></svg>
+    Code berhasil disalin!
+  </div>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function copyCode() {
+      const code = document.getElementById("code").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const alertBox = document.getElementById("alertBox");
+        alertBox.classList.add("show");
+        setTimeout(() => {
+          alertBox.classList.remove("show");
+        }, 2500);
+      });
+    }
   </script>
 </body>
-  </html>
+      </html>
